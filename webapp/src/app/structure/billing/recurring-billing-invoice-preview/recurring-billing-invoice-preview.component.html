@@ -1,0 +1,11 @@
+<div class="mb-[12px]">
+  <span class="text-sm w-full px-2 text-gray-500 font-[500]">Select from available billing days below to load the recurring billing preview.</span>
+</div>
+<div class="w-full flex flex-col px-2">
+  <div class="flex flex-row gap-8">
+    <gr-select-block label="Service Year" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="years"></gr-select-block>
+    <gr-select-block label="Service Month" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="months"></gr-select-block>
+    <gr-select-block label="Billing Day" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="days"></gr-select-block>
+    <button type="button" class="bg-blueDS-500 text-white py-2 rounded-md w-24 self-end hover:bg-blueDS-400">Run Test</button>
+  </div>
+</div>

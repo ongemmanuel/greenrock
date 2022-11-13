@@ -1,0 +1,9 @@
+<div class="h-full relative">
+  <gr-page-header pageHeader="Invoices"></gr-page-header>
+  <div class="flex">
+    <gr-tabs class="flex-1 pr-8" (onTabSelect)="switchTab($event)" [tabs]="tabs"></gr-tabs>
+  </div>
+  <div class="mt-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

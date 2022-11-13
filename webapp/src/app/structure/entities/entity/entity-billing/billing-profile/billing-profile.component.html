@@ -1,0 +1,13 @@
+<div class="p-4 flex flex-col font-[500] text-gray-700">
+  <button type="button" class="bg-blueDS-500 text-white py-2 mx-2 rounded-md w-24 self-end hover:bg-blueDS-400">Save</button>
+  <div class="flex flex-col gap-6 mt-2 w-1/2">
+    <gr-select-block [setLabelWidth]="48" [setSelectWidth]="'full'" [isHorizontal]="true" [options]="[billingProfileData.name]" label="Bank name"></gr-select-block>
+    <gr-select-block [setLabelWidth]="48" [setSelectWidth]="'full'" [isHorizontal]="true" [options]="[billingProfileData.number]" label="Card number"></gr-select-block>
+    <gr-select-block [setLabelWidth]="48" [setSelectWidth]="'full'" [isHorizontal]="true" [options]="[billingProfileData.recurringBilling]" label="Recurring billing"></gr-select-block>
+    <gr-select-block [setLabelWidth]="48" [setSelectWidth]="'full'"  [isHorizontal]="true" [options]="billingProfileData.billingDay" label="Billing day"></gr-select-block>
+    <div class="flex items-center ml-40 select-none">
+      <input id="authorization" name="authorization" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-blueDS-500 focus:ring-blueDS-500  cursor-pointer mx-4">
+      <label for="authorization" class="ml-2 block text-sm text-gray-900 cursor-pointer">Require client authorization</label>
+    </div>
+  </div>
+</div>

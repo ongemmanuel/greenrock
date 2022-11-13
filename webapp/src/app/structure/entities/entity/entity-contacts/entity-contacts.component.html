@@ -1,0 +1,23 @@
+<div class="flex flex-col px-2">
+  <button type="button" class="bg-blueDS-500 text-white py-2 rounded-md w-36 self-end hover:bg-blueDS-400 mb-4">Add Contacts</button>
+  <div *ngIf="entityContacts || entityContacts.length > 0" class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+    <table class="min-w-full divide-y divide-gray-300 table-fixed">
+      <thead class="bg-gray-50">
+        <th scope="col" class="px-6 py-4 text-left text-sm font-[500] text-gray-500 uppercase">Contact Name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </thead>
+      <tbody class="divide-y divide-gray-200 bg-white">
+        <ng-container *ngFor="let contact of entityContacts">
+          <tr>
+            <td class="px-6 py-4 text-gray-900 font-[500] text-sm">{{ contact.name }}</td>
+            <td class="px-6 py-4 font-[400] text-blueDS-500 w-[200px] cursor-pointer text-sm">Login as client</td>
+            <td class="px-6 py-4 font-[400] text-blueDS-500 w-[100px] cursor-pointer text-sm">Edit</td>
+            <td class="px-6 py-4 text-gray-400 font-[400] w-[100px] cursor-pointer text-sm">...</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

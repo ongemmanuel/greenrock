@@ -1,0 +1,10 @@
+<label [ngClass]="isHorizontal ? 'flex flex-row items-center gap-10' : ''">
+    <span [ngClass]="setLabelWidth ? 'w-' + setLabelWidth : ''" class="flex block text-sm font-medium text-gray-700">{{label}}</span>
+    <select [ngClass]="setSelectWidth ? 'w-' + setSelectWidth : ''" class="flex mt-1 border-slate-300 rounded-md placeholder-slate-400
+     focus:border-blueDS-400 focus:ring-1 focus:ring-blueDS-500 cursor-pointer min-w-[100px]">
+        <option *ngIf="includeDefaultAllOption">All</option>
+        <ng-container *ngFor="let option of options">
+            <option>{{option}}</option>
+        </ng-container>
+    </select>
+</label>

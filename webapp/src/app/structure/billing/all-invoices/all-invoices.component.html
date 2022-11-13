@@ -1,0 +1,14 @@
+<div class="w-full flex flex-col px-2 mt-[52px] mb-8">
+  <div class="flex flex-row gap-8">
+    <gr-select-block label="Entities" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="entitiesData"></gr-select-block>
+    <gr-select-block label="Services" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="servicesData"></gr-select-block>
+    <gr-select-block label="Status" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="statusData"></gr-select-block>
+    <gr-select-block label="Month" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="months"></gr-select-block>
+    <gr-select-block label="Year" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="years"></gr-select-block>
+    <gr-select-block label="Invoice/Billing" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="invoice"></gr-select-block>
+  </div>
+</div>
+
+<span class="text-gray-900 text-lg px-2">Invoices Total: <span class="font-[500]">{{invoiceTotal | currency}}</span></span>
+
+<gr-table [setNumericColumns]="displayNumericDateColumns" [setTimeColumns]="displayTimeColumns" [tableData]="invoiceData"></gr-table>

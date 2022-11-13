@@ -1,0 +1,25 @@
+<div class="flex flex-col">
+  <div>
+    <gr-page-header (click)="returnToMessages()" class="cursor-pointer underline" pageHeader="Messages"></gr-page-header>
+    <gr-page-header *ngIf="displayData" pageHeader=" / {{displayData.firstName}} {{displayData.lastName}}"></gr-page-header>
+  </div>
+
+  <div class="border-b border-gray-200 w-full mt-6"></div>
+
+  <div class="w-[80%] flex flex-col mt-8">
+    <ng-container *ngFor="let msg of smsNotificationData">
+      <div class="bg-white shadow sm:rounded-lg mb-4 px-2 mr-4">
+        <div class="px-2 py-4">
+          <div class="flex flex-row items-center gap-4">
+            <h3 class="text-md font-medium leading-6 text-gray-900">{{msg.name}}</h3>
+            <span class="text-sm text-gray-500">{{msg.date | date:"MMM dd, yyyy"}}</span>
+          </div>
+          <div class="mt-2 max-w-xl text-sm text-gray-500">
+            <p>{{msg.message}}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+</div>

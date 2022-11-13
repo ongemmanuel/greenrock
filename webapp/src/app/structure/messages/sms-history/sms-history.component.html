@@ -1,0 +1,36 @@
+<div class="flex flex-col">
+  <div>
+    <gr-page-header (click)="returnToMessages()" class="cursor-pointer underline" pageHeader="Messages"></gr-page-header>
+    <gr-page-header *ngIf="displayData" pageHeader=" / {{displayData.firstName}} {{displayData.lastName}}"></gr-page-header>
+  </div>
+
+  <div class="border-b border-gray-200 w-full mt-6"></div>
+
+  <div class="flex flex-row w-full h-full divide-x-2 divide-gray-200">
+    <div class="w-[40%] flex flex-col mr-6 mt-8">
+      <gr-select-block setLabelWidth="[40%]" setSelectWidth="[60%]" [options]="[11111, 222222, 33333]" [isHorizontal]="true" [label]="'SMS Number'"></gr-select-block>
+      <label class="flex flex-row items-start gap-8 mt-4">
+        <span class="w-[40%] flex block text-sm font-medium text-gray-700 pt-2">Message</span>
+        <textarea placeholder="Start typing..." class="w-[60%] min-h-[100px] flex mt-1 border-slate-300 rounded-md placeholder-slate-400
+        focus:border-blueDS-400 focus:ring-1 focus:ring-blueDS-500 cursor-pointer"></textarea>
+      </label>
+      <button type="button" class="bg-blueDS-500 text-white py-2 mt-6 rounded-md w-16 hover:bg-blueDS-400 ml-auto">Send</button>
+    </div>
+
+    <div class="w-[60%] flex flex-col pl-6 mt-8">
+      <ng-container *ngFor="let msg of smsHistoryData">
+        <div class="bg-white shadow sm:rounded-lg mb-4 px-2 mr-4">
+          <div class="px-2 py-4">
+            <div class="flex flex-row items-center gap-4">
+              <h3 class="text-md font-medium leading-6 text-gray-900">{{msg.name}}</h3>
+              <span class="text-sm text-gray-500">{{msg.date | date:"MMM dd, yyyy"}}</span>
+            </div>
+            <div class="mt-2 max-w-xl text-sm text-gray-500">
+              <p>{{msg.message}}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="overflow-hidden rounded-lg bg-gray-50 shadow-md border py-[20px] h-[80%] flex flex-col">
+  <button *ngIf="isRouteServiceEdit" (click)="backToOngoingServices()" class="px-[20px] my-[8px] font-semibold self-start" type="button">Back to services</button>
+  <div class="flex">
+    <gr-tabs *ngIf="!isRouteServiceEdit" class="flex-1 mr-8 px-6" (onTabSelect)="switchTab($event)" [tabs]="tabs"></gr-tabs>
+    <button *ngIf="!isRouteServiceEdit" type="button" class="bg-blueDS-500 text-white py-2 mr-4 rounded-md w-36 self-end hover:bg-blueDS-400">Add Service</button>
+    <gr-tabs [defaultStyle]="false" *ngIf="isRouteServiceEdit" class="flex-1 mr-4 pl-4" (onTabSelect)="switchServiceTab($event)" [tabs]="editServiceTabs"></gr-tabs>
+  </div>
+  <div [ngClass]="!isRouteServiceEdit ? 'px-4' : 'bg-white border-gray-200 border-l border-r border-b mx-4'" class="overflow-x-hidden overflow-y-auto h-full flex-grow">
+    <router-outlet></router-outlet>
+  </div>
+</div>

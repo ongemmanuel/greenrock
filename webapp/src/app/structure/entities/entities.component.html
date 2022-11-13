@@ -1,0 +1,8 @@
+<div class="h-full relative">
+  <gr-page-header pageHeader="Entities"></gr-page-header>
+  <div class="flex justify-between">
+    <gr-tabs class="flex-1 pr-8" (onTabSelect)="switchTab($event)" [tabs]="tabs"></gr-tabs>
+    <button type="button" class="bg-blueDS-500 text-white py-2 rounded-md w-36 self-end hover:bg-blueDS-400">Add Entity</button>
+  </div>
+  <router-outlet></router-outlet>
+</div>

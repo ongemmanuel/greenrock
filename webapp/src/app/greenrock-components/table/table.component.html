@@ -1,0 +1,105 @@
+<!-- <div *ngIf="tableData.length > 0" class="flex flex-col">
+  <div class="overflow-x-auto">
+    <div class="min-w-[100%] py-2">
+      <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-300 table-fixed">
+
+          <thead class="bg-gray-50">
+            <tr>
+              <ng-container *ngFor="let data of tableData[0] | keyvalue: unsortKeyValue; let i = index">
+                <th [ngClass]="i !== 0 ? 'text-center w-' + colWidth  : ''" class="font-[500] px-6 py-4 text-left text-sm text-gray-500 uppercase">{{ data.key | camelCaseToTitleSeperatedCase }}</th>
+              </ng-container>
+              <ng-container *ngFor="let action of actionColumns">
+                <th *ngIf="action" scope="col" class="px-6 py-4 text-center w-40"> <span class="sr-only">Header for action columns</span> </th>
+              </ng-container>
+              <th *ngIf="editAction" scope="col" class="px-6 py-4 text-center w-32"> <span class="sr-only">Header for Edit</span> </th>
+              <th *ngIf="deleteAction" scope="col" class="px-6 py-4 text-center w-32"> <span class="sr-only">Header for Delete</span> </th>
+            </tr>
+          </thead>
+
+          <tbody class="divide-y divide-gray-200 bg-white">
+            <ng-container *ngFor="let rows of tableData | slice : startSlice  : endSlice">
+              <tr>
+                <ng-container *ngFor="let data of rows | keyvalue: unsortKeyValue; let i = index">
+                  <td [ngClass]="i !== 0 ? 'text-gray-500 text-center w-' + colWidth : 'text-gray-900 font-[500]'" *ngIf="data.value | isInstanceOfDate" class="px-6 py-4 text-sm">{{ data.value | formatInstanceofDate : (setNumericColumns | includes: data.key) : (setTimeColumns | includes: data.key) }}</td>
+                  <td [ngClass]="i !== 0 ? 'text-gray-500 text-center w-' + colWidth : 'text-gray-900 font-[500]'" *ngIf="!(data.value | isInstanceOfDate)" class="text-sm px-6 py-4">
+                    <div>
+                      <span [ngClass]="((setStatusColor && (data.value | checkActive)) === 'active') 
+                      ? 'bg-green-100 rounded-lg capitalize px-2 py-[1px]' : setStatusColor && (data.value | checkActive) === 'inactive' ? 'bg-red-100 rounded-lg capitalize px-2 py-[1px]' : ''">{{ data.value }}</span>
+                    </div>
+                  </td>
+                </ng-container>
+
+                <ng-container *ngFor="let action of actionColumns">
+                  <td class="px-6 py-4 text-sm text-center w-40">
+                    <span (click)="customAction(action, rows)" class="text-blueDS-500 hover:text-blueDS-400 cursor-pointer font-[400]">{{ action }}</span>
+                  </td>
+                </ng-container>
+
+                <td *ngIf="editAction" class="px-6 py-4 text-sm text-center w-32">
+                  <span (click)="rowEdit(rows)" class="text-blueDS-500 hover:text-blueDS-400 cursor-pointer font-[400]">Edit</span>
+                </td>
+
+                <td *ngIf="deleteAction" class="px-6 py-4 text-sm text-center w-32">
+                  <span (click)="rowDelete(true)" class="text-red-600 hover:text-red-400 cursor-pointer font-[400]">Delete</span>
+                </td>
+
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg mt-4">
+  <table class="min-w-full divide-y divide-gray-300 table-fixed">
+
+    <thead class="bg-gray-50">
+      <tr>
+        <ng-container *ngFor="let data of tableData[0] | keyvalue: unsortKeyValue; let i = index">
+          <th [ngClass]="i !== 0 ? 'text-center w-' + colWidth  : ''" class="font-[500] px-6 py-4 text-left text-sm text-gray-900 uppercase">{{ data.key | camelCaseToTitleSeperatedCase }}</th>
+        </ng-container>
+        <ng-container *ngFor="let action of actionColumns">
+          <th *ngIf="action" scope="col" class="px-6 py-4 text-center w-40"> <span class="sr-only">Header for action columns</span> </th>
+        </ng-container>
+        <th *ngIf="editAction" scope="col" class="px-6 py-4 text-center w-32"> <span class="sr-only">Header for Edit</span> </th>
+        <th *ngIf="deleteAction" scope="col" class="px-6 py-4 text-center w-32"> <span class="sr-only">Header for Delete</span> </th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-gray-200 bg-white">
+      <ng-container *ngFor="let rows of tableData | slice : startSlice  : endSlice">
+        <tr>
+          <ng-container *ngFor="let data of rows | keyvalue: unsortKeyValue; let i = index">
+            <td [ngClass]="i !== 0 ? 'text-gray-500 text-center w-' + colWidth : 'text-gray-900 font-[500]'" *ngIf="data.value | isInstanceOfDate" class="px-6 py-4 text-sm">{{ data.value | formatInstanceofDate : (setNumericColumns | includes: data.key) : (setTimeColumns | includes: data.key) }}</td>
+            <td [ngClass]="i !== 0 ? 'text-gray-500 text-center w-' + colWidth : 'text-gray-900 font-[500]'" *ngIf="!(data.value | isInstanceOfDate)" class="text-sm px-6 py-4">
+              <div>
+                <span [ngClass]="((setStatusColor && (data.value | checkActive)) === 'active') 
+                ? 'bg-green-100 rounded-lg capitalize px-2 py-[1px]' : setStatusColor && (data.value | checkActive) === 'inactive' ? 'bg-red-100 rounded-lg capitalize px-2 py-[1px]' : ''">{{ data.value }}</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container *ngFor="let action of actionColumns">
+            <td class="px-6 py-4 text-sm text-center w-40">
+              <span (click)="customAction(action, rows)" class="text-blueDS-500 hover:text-blueDS-400 cursor-pointer font-[400]">{{ action }}</span>
+            </td>
+          </ng-container>
+
+          <td *ngIf="editAction" class="px-6 py-4 text-sm text-center w-32">
+            <span (click)="rowEdit(rows)" class="text-blueDS-500 hover:text-blueDS-400 cursor-pointer font-[400]">Edit</span>
+          </td>
+
+          <td *ngIf="deleteAction" class="px-6 py-4 text-sm text-center w-32">
+            <span (click)="rowDelete(true)" class="text-red-600 hover:text-red-400 cursor-pointer font-[400]">Delete</span>
+          </td>
+
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<gr-pagination [dataCount]="this.tableData.length" [itemsPerPage]="itemsPerPage" (setPageToDisplay)="setItemsDisplay($event)"></gr-pagination>

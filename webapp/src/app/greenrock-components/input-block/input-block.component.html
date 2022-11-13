@@ -1,0 +1,10 @@
+<!-- <label>
+  <span class="block text-sm font-medium text-gray-700">{{label}}</span>
+  <input type="text" [value]="value" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-blueDS-500" />
+</label> -->
+
+<div [ngClass]="isHorizontal ? 'flex flex-row items-center gap-10' : ''">
+  <div [ngClass]="setLabelWidth ? 'w-' + setLabelWidth : ''" class="flex block text-sm font-medium text-gray-700">{{label}}</div>
+  <input [ngClass]="setInputWidth ? 'w-' + setInputWidth : ''" [type]="type" [value]="value" class="mt-1 block min-w-[200px] px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-blueDS-500" />
+</div>

@@ -1,0 +1,70 @@
+<!-- component -->
+
+<div class="h-full w-full text-gray-700 p-6 flex flex-row">
+  <nav class="w-48 p-4 border-r-2 h-full">
+    <button type="button" class="block px-4 py-2 my-2 text-sm text-white bg-blueDS-500 rounded-md  hover:bg-blueDS-400">Add Period</button>
+
+    <ng-container *ngFor="let navYear of navYears">
+      <div class="w-full mb-2">
+        <button (click)="toggle(navYear)" type="button" [class.bg-gray-200]="navYear.opened" class="inline-flex text-left w-full py-2 px-5 font-medium text-gray-700 rounded-md hover:bg-gray-100">
+          <svg class="-ml-3 mr-4 h-5 w-5 animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+          {{navYear.year}}
+        </button>
+        <!--
+          Dropdown menu, show/hide based on menu state.
+      
+          Entering: "transition ease-out duration-100"
+            From: "transform opacity-0 scale-95"
+            To: "transform opacity-100 scale-100"
+          Leaving: "transition ease-in duration-75"
+            From: "transform opacity-100 scale-100"
+            To: "transform opacity-0 scale-95"
+        -->
+
+        <ng-container *ngIf="navYear.opened">
+          <ng-container *ngFor="let log of logData">
+            <a *ngIf="log.year === navYear.year" (click)="openServiceLog(log)" class="hover:bg-gray-100 my-2 text-gray-700 block px-4 py-1 text-sm rounded-md cursor-pointer text-right">{{months[log.month - 1]}}</a>
+          </ng-container>
+        </ng-container>
+
+      </div>
+    </ng-container>
+
+
+  </nav>
+  <div class="flex-grow p-8" *ngIf="selectedLogData">
+    <gr-page-header pageHeader="{{months[selectedLogData.month - 1]}} {{selectedLogData.year}}"></gr-page-header>
+    <div *ngIf="selectedLogData.tableData.length > 0" class="mt-8 flex flex-col">
+      <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-[100%] py-2 align-middle md:px-6 lg:px-8">
+          <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-300 table-fixed">
+              <thead class="bg-gray-50">
+                <th scope="col" class="px-6 py-4 text-left font-[500] text-gray-500 uppercase ">Name</th>
+                <th scope="col" class="px-6 py-4 text-left font-[500] text-gray-500 uppercase ">Status</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </thead>
+              <tbody class="divide-y divide-gray-200 bg-white">
+                <ng-container *ngFor="let row of selectedLogData.tableData">
+                  <tr>
+                    <td class="px-6 py-4 font-[500]">{{ row.name }}</td>
+                    <td class="px-6 py-4 font-[500]">{{ row.status }}</td>
+                    <td [class]="row.history ? 'text-blueDS-500' : 'text-gray-400'" class="px-6 py-4 font-[400]">History</td>
+                    <td [class]="row.sendNotif ? 'text-blueDS-500' : 'text-gray-400'" class="px-6 py-4 font-[400]">Send Notification</td>
+                    <td [class]="row.timer ? 'text-blueDS-500' : 'text-gray-400'" class="px-6 py-4 font-[400]">Timer</td>
+                    <td class="px-6 py-4 text-blueDS-500 font-[400]">Upload</td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

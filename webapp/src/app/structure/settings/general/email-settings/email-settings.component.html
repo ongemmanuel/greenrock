@@ -1,0 +1,19 @@
+<div class="bg-white shadow rounded-lg px-8 py-6 w-2/3">
+  <div class="divide-y-2 divide-gray-200">
+    <div class="flex flex-col gap-6 w-1/2 mb-8">
+      <gr-input-block label="SMTP Email" [isHorizontal]="true" [setLabelWidth]="'1/2'" [setInputWidth]="'1/2'" [value]="'greenrock@greenrockfinancial.com'"></gr-input-block>
+      <gr-input-block [type]="'password'" label="SMTP Password" [isHorizontal]="true" [setLabelWidth]="'1/2'" [setInputWidth]="'1/2'" [value]="'123456'"></gr-input-block>
+      <label class="flex flex-row items-start gap-8 mt-2">
+        <span class="w-[50%] flex block text-sm font-medium text-gray-700 pt-2">Message</span>
+        <textarea placeholder="Start typing..." class="w-[50%] min-h-[100px] flex mt-1 border-slate-300 rounded-md placeholder-slate-400
+        focus:border-blueDS-400 focus:ring-1 focus:ring-blueDS-500 cursor-pointer"></textarea>
+      </label>
+    </div>
+    <div class="grid pt-4 justify-items-end">
+      <div class="flex gap-8">
+        <button type="button" class="bg-white text-gray-500 py-2 rounded-md w-24 border border-gray-200">Cancel</button>
+        <button type="button" class="bg-blueDS-500 text-white py-2 rounded-md w-24 hover:bg-blueDS-400">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

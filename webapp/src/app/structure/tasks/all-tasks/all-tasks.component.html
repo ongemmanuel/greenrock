@@ -1,0 +1,13 @@
+<div class="w-full h-24 flex flex-row justify-between">
+  <div class="flex flex-row gap-8 self-end">
+    <gr-select-block label="Issuer" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="issuerData"></gr-select-block>
+    <gr-select-block label="Assignee" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="assigneeData"></gr-select-block>
+    <gr-select-block label="Work Status" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="statusData"></gr-select-block>
+    <gr-select-block label="Admin Status" [setSelectWidth]="'[200px]'" [includeDefaultAllOption]="true" [options]="adminStatusData"></gr-select-block>
+  </div>
+  <div class="flex flex-row gap-4 self-end">
+    <input type="text" placeholder="Search" class="bg-white ml-auto mt-6 py-2 rounded-md w-72 self-end border border-gray-200" />
+  </div>
+</div>
+
+<gr-table [setNumericColumns]="displayNumericDateColumns" [setTimeColumns]="displayTimeColumns" [tableData]="taskData"></gr-table>

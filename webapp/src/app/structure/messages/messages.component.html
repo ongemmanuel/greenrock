@@ -1,0 +1,8 @@
+<div *ngIf="isContactDisplayed" class="flex flex-col">
+  <gr-page-header pageHeader="Available Contacts"></gr-page-header>
+  <div class="border-b border-gray-200 w-full mt-6"></div>
+  <input type="text" placeholder="Search" class="bg-white ml-auto mt-6 py-2 rounded-md w-72 self-end border border-gray-200" />
+  <gr-table (onActionClick)="proceedAction($event)"  [actionColumns]="actionColumns" [tableData]="contactsData"></gr-table>
+</div>
+
+<router-outlet (activate)="onOutletLoaded($event)" (deactivate)="routeDeactivated()"></router-outlet>

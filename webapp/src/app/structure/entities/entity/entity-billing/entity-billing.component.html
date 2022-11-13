@@ -1,0 +1,8 @@
+<div class="overflow-hidden rounded-lg bg-gray-50 shadow-md border px-[20px] py-[20px] h-[80%] flex flex-col">
+  <div class="flex">
+    <gr-tabs class="flex-1 mr-2" (onTabSelect)="switchTab($event)" [tabs]="entityBillingTabs"></gr-tabs>
+  </div>
+  <div class="overflow-x-hidden overflow-y-auto h-full flex-grow">
+    <router-outlet></router-outlet>
+  </div>
+</div>

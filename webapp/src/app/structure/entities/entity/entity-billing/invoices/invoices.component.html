@@ -1,0 +1,16 @@
+<div class="w-full h-24 flex flex-row py-4 px-2 justify-between">
+  <div class="flex flex-row gap-4 self-end">
+    <gr-select-block label="Status" [options]="status"></gr-select-block>
+    <gr-select-block label="Month" [options]="month"></gr-select-block>
+    <gr-select-block label="Year" [options]="year"></gr-select-block>
+  </div>
+  <div class="flex flex-row gap-4 self-end">
+    <button type="button" class="bg-white border border-gray-300 rounded-md w-36 text-gray-700 font-[500] h-[42px]">Master Invoice</button>
+    <button type="button" class="bg-white border border-gray-300 rounded-md w-36 text-gray-700 font-[500] h-[42px]">Import</button>
+    <button type="button" class="bg-blueDS-500 hover:bg-blueDS-400 text-white border border-gray-300 rounded-md w-36 text-gray-700 font-[500] h-[42px]">Add Invoice</button>
+  </div>
+</div>
+
+<div class="px-2">
+  <gr-table [setWidth]="48" [isRowClickable]="true" [tableData]="invoiceData"></gr-table>
+</div>

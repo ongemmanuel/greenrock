@@ -1,0 +1,29 @@
+<div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow-md border">
+  <div class="px-4 py-5 sm:px-6">
+    <gr-page-header pageHeader="Entity Information"></gr-page-header>
+    <div class="py-5">
+        <div class="flex flex-wrap">
+          <gr-input-block class="w-2/3 mb-4 pr-8" label="Entity name" value="Entity 1"></gr-input-block>
+          <gr-select-block class="w-1/3 mb-4 pr-8" [options]="types" label="Entity Type"></gr-select-block>
+        </div>
+    </div>
+  </div>
+  <div class="px-4 py-5 sm:px-6">
+    <gr-page-header pageHeader="Assigned Users"></gr-page-header>
+    <div class="py-5">
+        <div class="flex flex-wrap">
+          <gr-select-block class="w-1/3 mb-4 pr-8" [options]="users" label="Entity Type"></gr-select-block>
+        </div>
+    </div>
+  </div>
+  <div class="px-4 py-5 sm:px-6">
+    <gr-page-header pageHeader="General Information"></gr-page-header>
+    <div class="py-5">
+        <div class="flex flex-wrap">
+          <gr-select-block class="w-1/3 mb-4 pr-8" [options]="types" label="Entity Type"></gr-select-block>
+          <gr-input-block class="w-1/3 mb-4 pr-8" label="Inception Date" value="01/01/2023"></gr-input-block>
+          <!-- date type -->
+        </div>
+    </div>
+  </div>
+</div>
